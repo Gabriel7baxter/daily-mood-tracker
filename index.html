@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Mood Tracker</title>
+<style>
+body{font-family:Arial;background:#fdf2f8;padding:25px;text-align:center}
+main{max-width:550px;margin:auto;background:white;padding:30px;border-radius:18px}
+button{background:#fce7f3;border:1px solid #f9a8d4;padding:15px;margin:5px;border-radius:10px;cursor:pointer;font-size:18px}
+button:hover{background:#fbcfe8}
+.entry{background:#fdf2f8;padding:15px;margin:10px 0;border-radius:8px}
+</style>
+</head>
+<body>
+<main>
+<h1>Daily Mood Tracker</h1>
+<p>How are you feeling today?</p>
+<button onclick="saveMood('😊 Happy')">😊 Happy</button>
+<button onclick="saveMood('😌 Calm')">😌 Calm</button>
+<button onclick="saveMood('😐 Neutral')">😐 Neutral</button>
+<button onclick="saveMood('😔 Sad')">😔 Sad</button>
+<button onclick="saveMood('😴 Tired')">😴 Tired</button>
+<h2>Mood History</h2>
+<div id="history"></div>
+<button onclick="clearHistory()">Clear History</button>
+</main>
+<script>
+let moods=JSON.parse(localStorage.getItem("dailyMoods")||"[]");
+function render(){
+ const history=document.getElementById("history");
+ history.innerHTML="";
+ moods.forEach(item=>{
+  const div=document.createElement("div");
+  div.className="entry";
+  div.textContent=item.date+" — "+item.mood;
+  history.appendChild(div);
+ });
+}
+function saveMood(mood){
+ const date=new Date().toLocaleDateString();
+ moods=moods.filter(item=>item.date!==date);
+ moods.unshift({date,mood});
+ localStorage.setItem("dailyMoods",JSON.stringify(moods));
+ render();
+}
+function clearHistory(){
+ if(!confirm("Delete your mood history?"))return;
+ moods=[];
+ localStorage.removeItem("dailyMoods");
+ render();
+}
+render();
+</script>
+</body>
+</html>
