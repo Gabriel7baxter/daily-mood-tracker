@@ -1,23 +1,23 @@
-# Daily Mood Tracker
+## Daily Mood Tracking Guide
 
-A personal application for recording daily moods.
+This application helps users record
+their daily mood selections.
 
-## Features
+### Main Features
 
-- Mood selection
-- Dated mood history
-- Local storage
+- Daily mood selection
+- Mood entry recording
+- Previous entry review
+- Personal tracking history
 
-## How to Use
+### How to Use
 
-Choose a mood to record how you feel today.
+1. Open the mood tracker.
+2. Select a mood.
+3. Save the entry.
+4. Review previous records.
 
-## Technologies
+### Privacy
 
-- HTML
-- CSS
-- JavaScript
-
-## Running Locally
-
-Open `index.html` in a modern web browser.
+Review the application's storage method
+before entering personal information.
