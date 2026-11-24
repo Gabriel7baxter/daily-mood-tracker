@@ -21,3 +21,12 @@ their daily mood selections.
 
 Review the application's storage method
 before entering personal information.
+## Manual Testing Checklist
+
+- [ ] Select a mood and save it for the current date.
+- [ ] Review the saved entry in mood history.
+- [ ] Change the same day's mood and check the updated record.
+
+### Test Notes
+
+Record the observed result and any reproducible issue after running the tests.
